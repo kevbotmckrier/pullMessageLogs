@@ -1,0 +1,17 @@
+{
+  "name": "messageLogs",
+  "version": "1.0.0",
+  "description": "Pulls messages logs from Twilio .csv format.",
+  "main": "pullMessageLogs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Krier <kkrier@twilio.com>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.0",
+    "google-libphonenumber": "^1.0.7",
+    "moment": "^2.10.6",
+    "request": "^2.67.0"
+  }
+}
