@@ -39,7 +39,7 @@ var auth = {
 
 var parameters = {}
 
-stream.write('From,To,Direction,Num Segments,Price,Date,To Country,From Country,SID\n');
+stream.write('From,To,Direction,Num Segments,Price,Date,Status,Error Code,To Country,From Country,SID\n');
 
 //Start pulling logs for each day in the time period selected
 for (var m = startDate; m.isBefore(endDate); m.add(1, 'days')) {
@@ -66,7 +66,7 @@ function pullMessages(uri) {
 				var fromCountry = phoneUtil.getRegionCodeForNumber(phoneUtil.parse(item.from));
 			}
 			catch (error) {
-				if(item.from.length==5 || item.from.length==6) {
+				if(item.from ? (item.from.length==5 || item.from.length==6) : false) {
 					var fromCountry = 'Short Code'
 				} else {
 					var fromCountry = 'Unk'
@@ -77,14 +77,14 @@ function pullMessages(uri) {
 				var toCountry = phoneUtil.getRegionCodeForNumber(phoneUtil.parse(item.to));
 			}
 			catch (error) {
-				if(item.to.length==5 || item.to.length==6) {
+				if(item.to ? (item.to.length==5 || item.to.length==6) : false) {
 					var toCountry = 'Short Code'
 				} else {
 					var toCountry = 'Unk'
 				}
 			}
 
-			stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+item.date_created+','+fromCountry+','+toCountry+','+item.sid+'\n');
+			stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+item.date_created+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
 
 		});
 
