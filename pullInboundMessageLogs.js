@@ -39,7 +39,7 @@ var auth = {
 
 var parameters = {}
 
-stream.write('From,To,Direction,Num Segments,Price,Date,Status,Error Code,To Country,From Country,SID\n');
+stream.write('From,To,Body,Direction,Num Segments,Price,Date,Status,Error Code,To Country,From Country,SID\n');
 
 //Start pulling logs for each day in the time period selected
 for (var m = startDate; m.isBefore(endDate); m.add(1, 'days')) {
@@ -85,7 +85,7 @@ function pullMessages(uri) {
 					}
 				}
 
-				stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+item.date_created+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
+				stream.write(item.from+','+item.to+','+item.body+','+item.direction+','+item.num_segments+','+item.price+','+item.date_created+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
 			}
 		});
 
