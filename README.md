@@ -18,6 +18,19 @@ This will include the From number, the To number, inbound/outbound, the number o
 
 Currently unable to determine the country of short codes used as short codes have overlapping format between countries such as US and Canada.
 
+###Pulling complete inbound message logs
+
+Call with 
+```
+node pullInboundMessageLogs.js [Account SID] [Account Auth Token] [Start Date (YYYY-MM-DD)] [End Date (YYYY-MM-DD)]
+```
+
+It will generate a .csv file called Inbound message log for [AccountSid] from [StartDate] to [EndDate] containing all of your SMS and MMS usage for the specified time period.
+
+This will include the From number, the To number, the body, inbound/outbound, the number of segments, the price, the date, the status, any applicable error code, the country of the receiving number, the country of the sending number, and the Message SID.
+
+Currently unable to determine the country of short codes used as short codes have overlapping format between countries such as US and Canada.
+
 ###Pulling message logs filtered on error codes
 
 Call with 
