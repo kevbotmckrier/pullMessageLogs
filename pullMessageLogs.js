@@ -83,8 +83,8 @@ function pullMessages(uri) {
 					var toCountry = 'Unk'
 				}
 			}
-
-			stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+moment(item.date_created.substring(5)).format()+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
+			
+			stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+moment(item.date_created.substring(5),'DD MMM YYYY hh:mm:dd').format()+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
 
 		});
 
