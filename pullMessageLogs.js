@@ -84,7 +84,7 @@ function pullMessages(uri) {
 				}
 			}
 
-			stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+item.date_created+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
+			stream.write(item.from+','+item.to+','+item.direction+','+item.num_segments+','+item.price+','+moment(item.date_created.substring(5)).format()+','+item.status+','+item.error_code+','+fromCountry+','+toCountry+','+item.sid+'\n');
 
 		});
 
