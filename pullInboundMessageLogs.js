@@ -59,8 +59,9 @@ function pullMessages(uri) {
 	request.get(parameters, function(error, httpResponse, body){
 
 		async.forEachOf(JSON.parse(body).messages, function(item,key){
-
-			if(item.direction == 'inbound') {
+			
+			// Delete item.direction === <your_unnecessary_direction> to filter on inbound or outbound
+			if(item.direction === 'inbound' || item.direection === 'outbound') {
 				//Assign countries or Short Code based on country code/number length
 				//Have to use try/catch blocks because the ported libphonenumber I'm using doesn't have callbacks
 				try {
